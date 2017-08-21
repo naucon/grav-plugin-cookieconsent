@@ -1,0 +1,112 @@
+name: Cookie Consent
+version: 0.1.0
+description: This grav plugin is to alert users about the use of cookies on your website. The plugin integrates the popular js lib cookie consent by insites.
+icon: gavel
+author:
+  name: naucon
+homepage: https://github.com/naucon/grav-plugin-cookieconsent
+keywords: grav, plugin, cookie, consent, eu, law, policy, insites
+bugs: https://github.com/naucon/grav-plugin-cookieconsent/issues
+docs: https://github.com/naucon/grav-plugin-cookieconsent/blob/develop/README.md
+license: MIT
+
+form:
+  validation: strict
+  fields:
+    enabled:
+      type: toggle
+      label: Plugin status
+      highlight: 1
+      default: 0
+      options:
+        1: Enabled
+        0: Disabled
+      validate:
+        type: bool
+    content_message:
+      type: text
+      label: Message
+      help: Message on the banner
+      default: "This website uses cookies to ensure you get the best experience on our website."
+      validate:
+        type: text
+    content_dismiss:
+      type: text
+      label: Dismiss button text
+      default: "Got it!"
+      validate:
+        type: text
+    content_link:
+      type: text
+      label: Policy link text
+      default: "Learn more"
+      validate:
+        type: text
+    content_href:
+      type: text
+      label: Link to policy
+      default: "https://cookiesandyou.com"
+      validate:
+        type: url
+    popup_background_color:
+      type: text
+      size: small
+      label: Banner background
+      help: Color of banner background
+      default: #000
+      validate:
+        type: text
+    popup_text_color:
+      type: text
+      size: small
+      label: Banner Text
+      help: Color of banner text
+      default: #fff
+      validate:
+        type: text
+    button_background_color:
+      type: text
+      size: small
+      label: Button background
+      help: Color of buttton background
+      default: #f1d600
+      validate:
+        type: text
+    button_text_color:
+      type: text
+      size: small
+      label: Button text
+      help: Color of button text
+      default: #000
+      validate:
+        type: text
+    button_border_color:
+      type: text
+      size: small
+      label: Button boarder
+      help: Color of button boarder
+      default: #f1d600
+      validate:
+        type: text
+    position:
+      type: select
+      size: medium
+      label: Position
+      default: bottom
+      help: Position on the website, where the banner will be displayed.
+      options:
+        top: Top
+        top-pushdown: Top (Pushdown)
+        bottom: Bottom
+        bottom-left: Bottom Left
+        bottom-right: Bottom Right
+    theme:
+      type: select
+      size: medium
+      label: Layout
+      default: block
+      help: Button layout
+      options:
+        block: Block (angled corners)
+        classic: Classic (round corners)
+        edgeless: Edgeless

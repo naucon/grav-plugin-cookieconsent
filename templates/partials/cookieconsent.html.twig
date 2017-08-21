@@ -1,0 +1,27 @@
+window.addEventListener("load", function(){
+window.cookieconsent.initialise({
+"palette": {
+    "popup": {
+        "background": "{{ config.plugins.cookieconsent.popup_background_color }}",
+        "text": "{{ config.plugins.cookieconsent.popup_text_color }}"
+    },
+    "button": {
+        "background": "{{ config.plugins.cookieconsent.button_background_color }}",
+        "text": "{{ config.plugins.cookieconsent.button_text_color }}",
+        "border": "{{ config.plugins.cookieconsent.button_border_color }}"
+    }
+},
+{% if config.plugins.cookieconsent.position == 'top-pushdown' %}
+"position": "top",
+"static": true,
+{% else %}
+"position": "{{ config.plugins.cookieconsent.position }}",
+{% endif %}
+"theme": "{{ config.plugins.cookieconsent.theme }}",
+"content": {
+    "message": "{{ config.plugins.cookieconsent.content_message }}",
+    "dismiss": "{{ config.plugins.cookieconsent.content_dismiss }}",
+    "link": "{{ config.plugins.cookieconsent.content_link }}",
+    "href": "{{ config.plugins.cookieconsent.content_href }}"
+}
+})});
