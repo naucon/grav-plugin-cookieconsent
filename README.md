@@ -41,13 +41,13 @@ enabled: true
 You can customize texts, shape and color with the following available options:
 
 ```yaml
-# Message on the banner
+# Message on the banner (overwrite translation)
 content_message: 'This website uses cookies to ensure you get the best experience on our website.'
-# Dismiss button text
+# Dismiss button text (overwrite translation)
 content_dismiss: 'Got it!'
-# Policy link text
+# Policy link text (overwrite translation)
 content_link: 'Learn more'
-# Link to policy
+# Link to policy (overwrite translation)
 content_href: 'https://cookiesandyou.com'
 
 # Color of banner background
@@ -75,6 +75,13 @@ position: bottom
 # edgeless: Edgeless
 theme: block
 ```
+
+### Translation
+
+Translations are defined in the `languages.yaml` file.
+
+Translations will be used if no `content_message`, `content_dismiss`, `content_link` or `content_href` are defined in `cookieconsent.yaml`.
+
 
 
 ## License

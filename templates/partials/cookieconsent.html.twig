@@ -19,9 +19,9 @@ window.cookieconsent.initialise({
 {% endif %}
 "theme": "{{ config.plugins.cookieconsent.theme }}",
 "content": {
-    "message": "{{ config.plugins.cookieconsent.content_message }}",
-    "dismiss": "{{ config.plugins.cookieconsent.content_dismiss }}",
-    "link": "{{ config.plugins.cookieconsent.content_link }}",
-    "href": "{{ config.plugins.cookieconsent.content_href }}"
+    "message": "{% if config.plugins.cookieconsent.content_message %}{{ config.plugins.cookieconsent.content_message }}{% else %}{{ 'PLUGINS.COOKIECONSENT.CONTENT_MESSAGE'|t }}{% endif %}",
+    "dismiss": "{% if config.plugins.cookieconsent.content_dismiss %}{{ config.plugins.cookieconsent.content_dismiss }}{% else %}{{ 'PLUGINS.COOKIECONSENT.CONTENT_DISMISS'|t }}{% endif %}",
+    "link": "{% if config.plugins.cookieconsent.content_link %}{{ config.plugins.cookieconsent.content_link }}{% else %}{{ 'PLUGINS.COOKIECONSENT.CONTENT_LINK'|t }}{% endif %}",
+    "href": "{% if config.plugins.cookieconsent.content_href %}{{ config.plugins.cookieconsent.content_href }}{% else %}{{ 'PLUGINS.COOKIECONSENT.CONTENT_HREF'|t }}{% endif %}"
 }
 })});

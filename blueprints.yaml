@@ -1,5 +1,5 @@
 name: Cookie Consent
-version: 0.1.0
+version: 0.2.0
 description: This grav plugin is to alert users about the use of cookies on your website. The plugin integrates the popular js lib cookie consent by insites.
 icon: gavel
 author:
@@ -27,25 +27,25 @@ form:
       type: text
       label: Message
       help: Message on the banner
-      default: "This website uses cookies to ensure you get the best experience on our website."
+      placeholder: "This website uses cookies to ensure you get the best experience on our website."
       validate:
         type: text
     content_dismiss:
       type: text
       label: Dismiss button text
-      default: "Got it!"
+      placeholder: "Got it!"
       validate:
         type: text
     content_link:
       type: text
       label: Policy link text
-      default: "Learn more"
+      placeholder: "Learn more"
       validate:
         type: text
     content_href:
       type: text
       label: Link to policy
-      default: "https://cookiesandyou.com"
+      placeholder: "https://cookiesandyou.com"
       validate:
         type: url
     popup_background_color:
