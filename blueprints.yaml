@@ -1,5 +1,5 @@
 name: Cookie Consent
-version: 0.2.0
+version: 0.3.0
 description: This grav plugin is to alert users about the use of cookies on your website. The plugin integrates the popular js lib cookie consent by insites.
 icon: gavel
 author:
@@ -23,66 +23,81 @@ form:
         0: Disabled
       validate:
         type: bool
-    content_message:
+    assets:
+      type: section
+      title: Assets
+      underline: true
+    built_in_css:
+      type: toggle
+      label: Use built in CSS
+      highlight: 1
+      default: 1
+      options:
+        1: Enabled
+        0: Disabled
+      validate:
+        type: bool
+    built_in_js:
+      type: toggle
+      label: Use built in JS
+      highlight: 1
+      default: 1
+      options:
+        1: Enabled
+        0: Disabled
+      validate:
+        type: bool
+    load_js_options_bottom:
+      type: toggle
+      label: Load js options in bottom
+      highlight: 1
+      default: 1
+      options:
+        1: Enabled
+        0: Disabled
+      validate:
+        type: bool
+    custom_document_event:
       type: text
-      label: Message
-      help: Message on the banner
-      placeholder: "This website uses cookies to ensure you get the best experience on our website."
+      size: medium
+      label: Custom document event
+      help: Use this to delay Cookie Consent initialization
       validate:
         type: text
-    content_dismiss:
-      type: text
-      label: Dismiss button text
-      placeholder: "Got it!"
-      validate:
-        type: text
-    content_link:
-      type: text
-      label: Policy link text
-      placeholder: "Learn more"
-      validate:
-        type: text
-    content_href:
-      type: text
-      label: Link to policy
-      placeholder: "https://cookiesandyou.com"
-      validate:
-        type: url
+    style:
+      type: section
+      title: Style
+      underline: true
     popup_background_color:
-      type: text
-      size: small
+      type: colorpicker
       label: Banner background
       help: Color of banner background
-      default: #000
+      default: #000000
       validate:
         type: text
     popup_text_color:
-      type: text
-      size: small
+      type: colorpicker
       label: Banner Text
       help: Color of banner text
-      default: #fff
+      default: #ffffff
       validate:
         type: text
     button_background_color:
-      type: text
-      size: small
+      type: colorpicker
       label: Button background
       help: Color of buttton background
       default: #f1d600
       validate:
         type: text
     button_text_color:
-      type: text
-      size: small
+      type: colorpicker
       label: Button text
       help: Color of button text
-      default: #000
+      default: #000000
       validate:
         type: text
     button_border_color:
-      type: text
-      size: small
+      type: colorpicker
       label: Button boarder
       help: Color of button boarder
       default: #f1d600

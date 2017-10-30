@@ -58,12 +58,30 @@ class CookieconsentPlugin extends Plugin
     public function onTwigSiteVariables()
     {
         $twig = $this->grav['twig'];
+        $assets = $this->grav['assets'];
+        $cookieConsentOptions = $this->config['plugins.cookieconsent'];
 
-        $config = $this->config->toArray();
+        // Configuration
+        $builtInCss = $cookieConsentOptions['built_in_css'];
+        $builtInJs = $cookieConsentOptions['built_in_js'];
+        $loadJsOptionsBottom = $cookieConsentOptions['load_js_options_bottom'];
 
-        $this->grav['assets']->addCss("//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css");
-        $this->grav['assets']->addJs("//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js");
+        // Load cookie consent CSS if enabled
+        if (!$this->isAdmin() && $builtInCss) {
 
-        $this->grav['assets']->addInlineJs($twig->twig->render('partials/cookieconsent.html.twig', array('config' => $config)));
+          // Add cookie consent CSS style
+          $assets->addCss('//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css');
+        }
+
+        // Load cookie consent JS if enabled
+        if (!$this->isAdmin() && $builtInJs) {
+          // Add cookie consent JS main script
+          $assets->addJs('//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js');
+
+          // Add cookie consent JS settings
+          $jsSettings = $twig->twig->render('partials/cookieconsent.html.twig', $cookieConsentOptions);
+          $group = $loadJsOptionsBottom ? 'bottom' : null;
+          $assets->addInlineJs($jsSettings, null, $group);
+        }
     }
 }

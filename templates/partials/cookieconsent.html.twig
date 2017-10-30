@@ -1,27 +1,41 @@
-window.addEventListener("load", function(){
-window.cookieconsent.initialise({
-"palette": {
-    "popup": {
-        "background": "{{ config.plugins.cookieconsent.popup_background_color }}",
-        "text": "{{ config.plugins.cookieconsent.popup_text_color }}"
-    },
-    "button": {
-        "background": "{{ config.plugins.cookieconsent.button_background_color }}",
-        "text": "{{ config.plugins.cookieconsent.button_text_color }}",
-        "border": "{{ config.plugins.cookieconsent.button_border_color }}"
-    }
-},
-{% if config.plugins.cookieconsent.position == 'top-pushdown' %}
-"position": "top",
-"static": true,
-{% else %}
-"position": "{{ config.plugins.cookieconsent.position }}",
-{% endif %}
-"theme": "{{ config.plugins.cookieconsent.theme }}",
-"content": {
-    "message": "{% if config.plugins.cookieconsent.content_message %}{{ config.plugins.cookieconsent.content_message }}{% else %}{{ 'PLUGINS.COOKIECONSENT.CONTENT_MESSAGE'|t }}{% endif %}",
-    "dismiss": "{% if config.plugins.cookieconsent.content_dismiss %}{{ config.plugins.cookieconsent.content_dismiss }}{% else %}{{ 'PLUGINS.COOKIECONSENT.CONTENT_DISMISS'|t }}{% endif %}",
-    "link": "{% if config.plugins.cookieconsent.content_link %}{{ config.plugins.cookieconsent.content_link }}{% else %}{{ 'PLUGINS.COOKIECONSENT.CONTENT_LINK'|t }}{% endif %}",
-    "href": "{% if config.plugins.cookieconsent.content_href %}{{ config.plugins.cookieconsent.content_href }}{% else %}{{ 'PLUGINS.COOKIECONSENT.CONTENT_HREF'|t }}{% endif %}"
-}
-})});
+var ready = false;
+document.onreadystatechange = function () {
+  if (ready) {
+    return;
+  }
+  if (document.readyState === 'interactive' || document.readyState === 'complete') {
+    ready = true;
+    {% if custom_document_event %}
+    document.addEventListener('{{ custom_document_event }}', function () {
+    {% endif %}
+      window.cookieconsent.initialise({
+        'palette': {
+          'popup': {
+            'background': '{{ popup_background_color }}',
+            'text': '{{ popup_text_color }}'
+          },
+          'button': {
+            'background': '{{ button_background_color }}',
+            'text': '{{ button_text_color }}',
+            'border': '{{ button_border_color }}'
+          },
+        },
+        {% if position == 'top-pushdown' %}
+        'position': 'top',
+        'static': true,
+        {% else %}
+        'position': '{{ position }}',
+        {% endif %}
+        'theme': '{{ theme }}',
+        'content': {
+          'message': '{{ "PLUGINS.COOKIECONSENT.CONTENT_MESSAGE"|t }}',
+          'dismiss': '{{ "PLUGINS.COOKIECONSENT.CONTENT_DISMISS"|t }}',
+          'link': '{{ "PLUGINS.COOKIECONSENT.CONTENT_LINK"|t }}',
+          'href': '{{ "PLUGINS.COOKIECONSENT.CONTENT_HREF"|t }}'
+        }
+      });
+    {% if custom_document_event %}
+    });
+    {% endif %}
+  }
+};
