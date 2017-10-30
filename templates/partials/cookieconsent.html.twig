@@ -19,19 +19,19 @@ document.onreadystatechange = function () {
             'text': '{{ button_text_color }}',
             'border': '{{ button_border_color }}'
           },
-          {% if position == 'top-pushdown' %}
-          'position': 'top',
-          'static': true,
-          {% else %}
-          'position': '{{ position }}',
-          {% endif %}
-          'theme': '{{ theme }}',
-          'content': {
-            'message': '{{ "PLUGINS.COOKIECONSENT.CONTENT_MESSAGE"|t }}',
-            'dismiss': '{{ "PLUGINS.COOKIECONSENT.CONTENT_DISMISS"|t }}',
-            'link': '{{ "PLUGINS.COOKIECONSENT.CONTENT_LINK"|t }}',
-            'href': '{{ "PLUGINS.COOKIECONSENT.CONTENT_HREF"|t }}'
-          }
+        },
+        {% if position == 'top-pushdown' %}
+        'position': 'top',
+        'static': true,
+        {% else %}
+        'position': '{{ position }}',
+        {% endif %}
+        'theme': '{{ theme }}',
+        'content': {
+          'message': '{{ "PLUGINS.COOKIECONSENT.CONTENT_MESSAGE"|t }}',
+          'dismiss': '{{ "PLUGINS.COOKIECONSENT.CONTENT_DISMISS"|t }}',
+          'link': '{{ "PLUGINS.COOKIECONSENT.CONTENT_LINK"|t }}',
+          'href': '{{ "PLUGINS.COOKIECONSENT.CONTENT_HREF"|t }}'
         }
       });
     {% if custom_document_event %}
