@@ -57,13 +57,19 @@ class CookieconsentPlugin extends Plugin
      */
     public function onTwigSiteVariables()
     {
-        $twig = $this->grav['twig'];
+        $assets = $this->grav['assets'];
 
-        $config = $this->config->toArray();
+        if ($this->config->get('plugins.cookieconsent.asset_source') == 'cloudflare')
+        {
+            $assets->addCss("//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.6/cookieconsent.min.css");
+            $assets->addJs("//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.6/cookieconsent.min.js");
+        }
+        else
+        {
+            $assets->addCss("plugin://cookieconsent/assets/cookieconsent.min.css");
+            $assets->addJs("plugin://cookieconsent/assets/cookieconsent.min.js");
+        }
 
-        $this->grav['assets']->addCss("//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css");
-        $this->grav['assets']->addJs("//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js");
-
-        $this->grav['assets']->addInlineJs($twig->twig->render('partials/cookieconsent.html.twig', array('config' => $config)));
+        $assets->addInlineJs($this->grav['twig']->processTemplate('partials/cookieconsent.html.twig'));
     }
 }

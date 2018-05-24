@@ -1,4 +1,5 @@
 enabled: true
+asset_source: cloudflare
 popup_background_color: '#000'
 popup_text_color: '#fff'
 button_background_color: '#f1d600'

@@ -13,6 +13,11 @@ license: MIT
 form:
   validation: strict
   fields:
+    basics:
+      type: section
+      title: Basics
+      underline: true
+
     enabled:
       type: toggle
       label: Plugin status
@@ -23,6 +28,22 @@ form:
         0: Disabled
       validate:
         type: bool
+
+    asset_source:
+      type: toggle
+      label: Asset source
+      help: "Load JavaScript and CSS files from official CloudFlare CDN or from local server."
+      highlight: local
+      default: cloudflare
+      options:
+        cloudflare: CloudFlare CDN
+        local: Local
+        
+    content:
+      type: section
+      title: Content
+      underline: true
+
     content_message:
       type: text
       label: Message
@@ -30,24 +51,33 @@ form:
       placeholder: "This website uses cookies to ensure you get the best experience on our website."
       validate:
         type: text
+
     content_dismiss:
       type: text
       label: Dismiss button text
       placeholder: "Got it!"
       validate:
         type: text
+
     content_link:
       type: text
       label: Policy link text
       placeholder: "Learn more"
       validate:
         type: text
+
     content_href:
       type: text
       label: Link to policy
       placeholder: "https://cookiesandyou.com"
       validate:
         type: url
+
+    colors:
+      type: section
+      title: Colors
+      underline: true
+
     popup_background_color:
       type: text
       size: small
@@ -56,6 +86,7 @@ form:
       default: #000
       validate:
         type: text
+
     popup_text_color:
       type: text
       size: small
@@ -64,14 +95,16 @@ form:
       default: #fff
       validate:
         type: text
+
     button_background_color:
       type: text
       size: small
       label: Button background
-      help: Color of buttton background
+      help: Color of button background
       default: #f1d600
       validate:
         type: text
+
     button_text_color:
       type: text
       size: small
@@ -80,14 +113,21 @@ form:
       default: #000
       validate:
         type: text
+
     button_border_color:
       type: text
       size: small
-      label: Button boarder
-      help: Color of button boarder
+      label: Button border
+      help: Color of button border
       default: #f1d600
       validate:
         type: text
+
+    style:
+      type: section
+      title: Style
+      underline: true
+
     position:
       type: select
       size: medium
@@ -95,17 +135,20 @@ form:
       default: bottom
       help: Position on the website, where the banner will be displayed.
       options:
-        top: Top
-        top-pushdown: Top (Pushdown)
-        bottom: Bottom
-        bottom-left: Bottom Left
-        bottom-right: Bottom Right
+        bottom: Bottom (banner)
+        top: Top (banner)
+        top-pushdown: Top (pushdown banner)
+        bottom-left: Bottom left (floating)
+        bottom-right: Bottom right (floating)
+        top-left: Top left (floating)
+        top-right: Top right (floating)
+
     theme:
       type: select
       size: medium
-      label: Layout
+      label: Theme
       default: block
-      help: Button layout
+      help: Button theme
       options:
         block: Block (angled corners)
         classic: Classic (round corners)
