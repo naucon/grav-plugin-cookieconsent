@@ -29,6 +29,16 @@ form:
       validate:
         type: bool
 
+    asset_source:
+      type: toggle
+      label: Asset source
+      help: "Load JavaScript and CSS files from official CloudFlare CDN or from local server."
+      highlight: local
+      default: cloudflare
+      options:
+        cloudflare: CloudFlare CDN
+        local: Local
+        
     content:
       type: section
       title: Content
@@ -125,13 +135,13 @@ form:
       default: bottom
       help: Position on the website, where the banner will be displayed.
       options:
-        bottom: Bottom (Banner)
-        top: Top (Banner)
-        top-pushdown: Top (Pushdown Banner)
-        bottom-left: Bottom Left (Floating)
-        bottom-right: Bottom Right (Floating)
-        top-left: Top Left (Floating)
-        top-right: Top Right (Floating)
+        bottom: Bottom (banner)
+        top: Top (banner)
+        top-pushdown: Top (pushdown banner)
+        bottom-left: Bottom left (floating)
+        bottom-right: Bottom right (floating)
+        top-left: Top left (floating)
+        top-right: Top right (floating)
 
     theme:
       type: select
