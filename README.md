@@ -58,7 +58,7 @@ popup_text_color: '#fff'
 button_background_color: '#f1d600'
 # Color of button text
 button_text_color: '#000'
-# Color of button boarder
+# Color of button border
 button_border_color: '#f1d600'
 
 # Position on the website, where the banner will be displayed.
