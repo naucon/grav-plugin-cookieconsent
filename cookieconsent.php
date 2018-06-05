@@ -62,7 +62,8 @@ class CookieconsentPlugin extends Plugin
         $config = $this->config->toArray();
 
         $this->grav['assets']->addCss("//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css");
-        $this->grav['assets']->addJs("//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js");
+       /** $this->grav['assets']->addJs("//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"); */
+        $this->grav['assets']->addJs("user/plugins/cookieconsent/templates/partials/cookieconsent.min.js");
 
         $this->grav['assets']->addInlineJs($twig->twig->render('partials/cookieconsent.html.twig', array('config' => $config)));
     }
