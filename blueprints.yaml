@@ -83,8 +83,8 @@ form:
     button_border_color:
       type: text
       size: small
-      label: Button boarder
-      help: Color of button boarder
+      label: Button border
+      help: Color of button border
       default: #f1d600
       validate:
         type: text

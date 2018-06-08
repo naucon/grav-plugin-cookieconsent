@@ -1,97 +1,11 @@
-# Cookie Consent Plugin
+:warning: Unless you are also annoyed :rage4:  
+by the fact of [CookieConsent](https://cookieconsent.insites.com/download/) don't offer the [last version of their JS](https://github.com/insites/cookieconsent/blob/master/src/cookieconsent.js) which result of not using [**noopener noreferrer nofollow**](https://github.com/insites/cookieconsent/blob/master/src/cookieconsent.js#L225) which impacts [performance and security](https://developers.google.com/web/tools/lighthouse/audits/noopener).
 
-![Cookie Consent](assets/readme_1.png)
+You should use the original GravCMS Plugin [cookie consent](https://github.com/naucon/grav-plugin-cookieconsent) by naucon.
 
-The **Cookie Consent** Plugin is for [Grav CMS](http://github.com/getgrav/grav). This grav plugin is to alert users about the use of cookies on your website. The plugin integrates the popular js lib [cookie consent](https://github.com/insites/cookieconsent/) by insites.
+## NOTE:
+- This repo will be destroyed as soon insites compile the JS with **noopener noreferrer nofollow** included.
+- Neither me nor naucon are affiliated with [cookie consent](https://github.com/insites/cookieconsent/) and/or insites.
 
-## Installation
-
-Installing the Cookieconsent plugin can be done in one of two ways. The GPM (Grav Package Manager) installation method enables you to quickly and easily install the plugin with a simple terminal command, while the manual method enables you to do so via a zip file.
-
-### GPM Installation (Preferred)
-
-The simplest way to install this plugin is via the [Grav Package Manager (GPM)](http://learn.getgrav.org/advanced/grav-gpm) through your system's terminal (also called the command line).  From the root of your Grav install type:
-
-    bin/gpm install cookieconsent
-
-This will install the Cookieconsent plugin into your `/user/plugins` directory within Grav. Its files can be found under `/your/site/grav/user/plugins/cookieconsent`.
-
-### Manual Installation
-
-To install this plugin, just download the zip version of this repository and unzip it under `/your/site/grav/user/plugins`. Then, rename the folder to `cookieconsent`. You can find these files on [GitHub](https://github.com/naucon/grav-plugin-cookieconsent) or via [GetGrav.org](http://getgrav.org/downloads/plugins#extras).
-
-You should now have all the plugin files under
-
-    /your/site/grav/user/plugins/cookieconsent
-	
-> NOTE: This plugin is a modular component for Grav which requires [Grav](http://github.com/getgrav/grav) and the [Error](https://github.com/getgrav/grav-plugin-error) and [Problems](https://github.com/getgrav/grav-plugin-problems) to operate.
-
-## Configuration
-
-Before configuring this plugin, you should copy the `user/plugins/cookieconsent/cookieconsent.yaml` to `user/config/plugins/cookieconsent.yaml` and only edit that copy.
-
-Here is the default configuration:
-
-```yaml
-enabled: true
-```
-
-## Advanced configuration
-
-You can customize texts, shape and color with the following available options:
-
-```yaml
-# Message on the banner (overwrite translation)
-content_message: 'This website uses cookies to ensure you get the best experience on our website.'
-# Dismiss button text (overwrite translation)
-content_dismiss: 'Got it!'
-# Policy link text (overwrite translation)
-content_link: 'Learn more'
-# Link to policy (overwrite translation)
-content_href: 'https://cookiesandyou.com'
-
-# Color of banner background
-popup_background_color: '#000'
-# Color of banner text
-popup_text_color: '#fff'
-# Color of buttton background
-button_background_color: '#f1d600'
-# Color of button text
-button_text_color: '#000'
-# Color of button boarder
-button_border_color: '#f1d600'
-
-# Position on the website, where the banner will be displayed.
-# top = Top
-# top-pushdown: Top (Pushdown)
-# bottom: Bottom
-# bottom-left: Bottom Left
-# bottom-right: Bottom Right
-position: bottom
-
-# Button layout
-# block: Block (angled corners)
-# classic: Classic (round corners)
-# edgeless: Edgeless
-theme: block
-```
-
-### Translation
-
-Translations are defined in the `languages.yaml` file.
-
-Translations will be used if no `content_message`, `content_dismiss`, `content_link` or `content_href` are defined in `cookieconsent.yaml`.
-
-
-
-## License
-
-The MIT License (MIT)
-
-Copyright (c) 2015 Sven Sanzenbacher
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+### For further questions about why, when, how ...
+Kindly ask @ueberbit [here](https://github.com/insites/cookieconsent/issues)
