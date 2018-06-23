@@ -1,0 +1,14 @@
+{
+  "name": "naucon/grav-plugin-cookieconsent",
+  "description": "This grav plugin is to alert users about the use of cookies on your website. The plugin integrates the popular js lib cookie consent by insites.",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "naucon"
+    }
+  ],
+  "require-dev": {
+    "getgrav/grav": "^1.2",
+    "codeception/codeception": "~2.2"
+  }
+}
