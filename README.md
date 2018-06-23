@@ -83,6 +83,18 @@ Translations are defined in the `languages.yaml` file.
 Translations will be used if no `content_message`, `content_dismiss`, `content_link` or `content_href` are defined in `cookieconsent.yaml`.
 
 
+### Known Issues
+
+#### Incompatible themes
+
+The plugin hooks into the grav asset manager (https://learn.getgrav.org/themes/asset-manager). Some themes haven't (properbly) integrated the assets manager and therefore do not work.
+
+Have a look at the following required elements in the base theme. Without them the plugin will not work.
+
+    {{ assets.css() }}
+    {{ assets.js() }}
+
+
 
 ## License
 
