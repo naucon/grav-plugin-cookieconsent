@@ -1,0 +1,8 @@
+build:
+    tests:
+        override:
+            -
+                command: 'vendor/bin/codecept run --coverage --coverage-xml'
+                coverage:
+                    file: 'tests/_output/coverage.xml'
+                    format: 'clover'
