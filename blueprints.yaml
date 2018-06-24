@@ -1,5 +1,5 @@
 name: Cookie Consent
-version: 0.2.0
+version: 0.3.0
 description: This grav plugin is to alert users about the use of cookies on your website. The plugin integrates the popular js lib cookie consent by insites.
 icon: gavel
 author:

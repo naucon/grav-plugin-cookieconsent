@@ -1,3 +1,14 @@
+# v0.3.0
+##  06/24/2018
+
+1. [](#new)
+    * Added color picker to fields with color in blueprint
+2. [](#improved)
+    * Changed the validation for policy link to be less strict to allow absolute as well as relative URl and path
+3. [](#bugfix)
+    * Fixed typo in labels and helper
+
+
 # v0.2.0
 ##  10/29/2017
 
