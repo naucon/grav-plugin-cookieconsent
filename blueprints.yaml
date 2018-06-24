@@ -47,7 +47,7 @@ form:
       label: Link to policy
       placeholder: "https://cookiesandyou.com"
       validate:
-        type: url
+        type: text
     popup_background_color:
       type: colorpicker
       label: Banner background
