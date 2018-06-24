@@ -49,42 +49,37 @@ form:
       validate:
         type: url
     popup_background_color:
-      type: text
-      size: small
+      type: colorpicker
       label: Banner background
       help: Color of banner background
-      default: #000
+      default: #000000
       validate:
         type: text
     popup_text_color:
-      type: text
-      size: small
+      type: colorpicker
       label: Banner Text
       help: Color of banner text
-      default: #fff
+      default: #ffffff
       validate:
         type: text
     button_background_color:
-      type: text
-      size: small
+      type: colorpicker
       label: Button background
       help: Color of buttton background
       default: #f1d600
       validate:
         type: text
     button_text_color:
-      type: text
-      size: small
+      type: colorpicker
       label: Button text
       help: Color of button text
-      default: #000
+      default: #000000
       validate:
         type: text
     button_border_color:
-      type: text
-      size: small
-      label: Button boarder
-      help: Color of button boarder
+      type: colorpicker
+      label: Button border
+      help: Color of button border
       default: #f1d600
       validate:
         type: text
