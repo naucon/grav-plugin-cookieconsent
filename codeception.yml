@@ -12,5 +12,9 @@ settings:
 extensions:
     enabled:
         - Codeception\Extension\RunFailed
+coverage:
+    enabled: true
+    exclude:
+        - vendor/*
 modules:
     config:
