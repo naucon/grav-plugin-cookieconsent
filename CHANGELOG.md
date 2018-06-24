@@ -1,3 +1,15 @@
+# v0.4.0
+##  06/24/2018
+
+1. [](#new)
+    * Added plugin setting to include cookie consent js and css from official cdn or local
+    * Added sections to structure plugin settings
+2. [](#improved)
+    * Updated cookie consent js and css from version 3.0.3 to 3.0.6.
+3. [](#bugfix)
+    * Fixed typo in helper text for color of button background.
+    * Fixed typos in README.
+
 # v0.3.0
 ##  06/24/2018
 

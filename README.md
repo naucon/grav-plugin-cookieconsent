@@ -41,6 +41,8 @@ enabled: true
 You can customize texts, shape and color with the following available options:
 
 ```yaml
+# Include JavaScript and CSS files from official CDN or local
+cdn: true
 # Message on the banner (overwrite translation)
 content_message: 'This website uses cookies to ensure you get the best experience on our website.'
 # Dismiss button text (overwrite translation)
@@ -54,11 +56,11 @@ content_href: 'https://cookiesandyou.com'
 popup_background_color: '#000'
 # Color of banner text
 popup_text_color: '#fff'
-# Color of buttton background
+# Color of button background
 button_background_color: '#f1d600'
 # Color of button text
 button_text_color: '#000'
-# Color of button boarder
+# Color of button border
 button_border_color: '#f1d600'
 
 # Position on the website, where the banner will be displayed.

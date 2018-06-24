@@ -56,7 +56,7 @@ class CookieconsentPluginTest extends \Codeception\Test\Unit
         $this->eventDispatcher = Stub::makeEmpty(EventDispatcherInterface::class);
         $this->twigEngine      = Stub::makeEmpty(\Twig\Environment::class);
         $this->twig            = Stub::make(Twig::class);
-        $this->assets          = Stub::makeEmpty(Assets::class);
+        $this->assets          = Stub::make(Assets::class);
     }
 
 
@@ -79,21 +79,80 @@ class CookieconsentPluginTest extends \Codeception\Test\Unit
         $plugin->onPluginsInitialized();
     }
 
-    public function testOnTwigSiteVariables()
-    {
-        $this->grav['twig']    = $this->twig;
-        $this->grav['assets']  = $this->assets;
-        $this->twig->twig      = $this->twigEngine;
-
-        $plugin = new CookieconsentPlugin('Cookie Consent', $this->grav, $this->config);
-        $plugin->onTwigSiteVariables();
-    }
-
     public function testOnTwigTemplatePaths()
     {
         $this->grav['twig'] = $this->twig;
 
         $plugin = new CookieconsentPlugin('Cookie Consent', $this->grav, $this->config);
         $plugin->onTwigTemplatePaths();
+
+        $this->assertCount(1, $this->twig->twig_paths);
+        $this->assertContains('/templates', $this->twig->twig_paths[0]);
+    }
+
+    public function testOnTwigSiteVariables()
+    {
+        $this->grav['twig'] = $this->twig;
+        $this->twig->twig   = $this->twigEngine;
+
+        $this->config = Stub::make(Config::class,
+            [
+                'get' => function($key) {
+                    if ($key == 'plugins.cookieconsent.cdn') {
+                        return true;
+                    }
+
+                    return null;
+                }
+            ]
+        );
+
+        $this->assets = Stub::make(Assets::class,
+            [
+                'addCss' => function($asset) {
+                    $this->assertEquals('//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.6/cookieconsent.min.css', $asset);
+                },
+                'addJs' => function($asset) {
+                    $this->assertEquals('//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.6/cookieconsent.min.js', $asset);
+                }
+            ]
+        );
+        $this->grav['assets']  = $this->assets;
+
+        $plugin = new CookieconsentPlugin('Cookie Consent', $this->grav, $this->config);
+        $plugin->onTwigSiteVariables();
+    }
+
+    public function testOnTwigSiteVariablesWithDisabledCdn()
+    {
+        $this->grav['twig']    = $this->twig;
+        $this->twig->twig      = $this->twigEngine;
+
+        $this->config = Stub::make(Config::class,
+            [
+                'get' => function($key) {
+                    if ($key == 'plugins.cookieconsent.cdn') {
+                        return false;
+                    }
+
+                    return null;
+                }
+            ]
+        );
+        $this->assets = Stub::make(Assets::class,
+            [
+                'addCss' => function($asset) {
+                    $this->assertEquals('plugin://cookieconsent/assets/cookieconsent.min.css', $asset);
+                },
+                'addJs' => function($asset) {
+                    $this->assertEquals('plugin://cookieconsent/assets/cookieconsent.min.js', $asset);
+                }
+            ]
+        );
+        $this->grav['assets']  = $this->assets;
+
+
+        $plugin = new CookieconsentPlugin('Cookie Consent', $this->grav, $this->config);
+        $plugin->onTwigSiteVariables();
     }
 }

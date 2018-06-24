@@ -1,4 +1,5 @@
 enabled: true
+cdn: true
 popup_background_color: '#000000'
 popup_text_color: '#ffffff'
 button_background_color: '#f1d600'
