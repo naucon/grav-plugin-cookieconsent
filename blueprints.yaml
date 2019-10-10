@@ -164,8 +164,8 @@ form:
       default: info
       help: Just inform users about cookies or Let them deny or allow cookies
       options:
-        info: Info and dismiss button
-        opt-in: Info and deny/allow buttons
+        info: 'Info: text with dismiss button'
+        opt-in: 'Opt-in: text with deny/allow buttons'
 
     content_allow:
       type: text
@@ -190,7 +190,8 @@ form:
 
     callback_onStatusChange:
       type: textarea
-      label: function to disable or enable cookies on your site
+      label: 'function to disable or enable cookies on your site<br>(required for opt-in)'
+      rows: 6
       placeholder: "function(status, chosenBefore) {\n...\n}"
       validate:
         type: textarea
