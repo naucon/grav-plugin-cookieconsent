@@ -195,3 +195,10 @@ form:
       placeholder: "function(status, chosenBefore) {\n...\n}"
       validate:
         type: textarea
+
+    callback_hint:
+      type: display
+      size: large
+      label: Callback-Example, logs to console only
+      markdown: true
+      content: "function(status) {<br>&nbsp; console.log( this.hasConsented() ? 'enable cookies': 'disable cookies' );<br>}"
