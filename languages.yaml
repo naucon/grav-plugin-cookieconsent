@@ -3,37 +3,52 @@ en:
     COOKIECONSENT:
       CONTENT_MESSAGE: "This website uses cookies to ensure you get the best experience on our website."
       CONTENT_DISMISS: "Got it!"
+      CONTENT_ALLOW: "Allow Cookies"
+      CONTENT_DENY: "Deny Cookies"
       CONTENT_LINK: "Learn more"
       CONTENT_HREF: "https://cookiesandyou.com"
+      CONTENT_REVOKE: "Change Cookie Consent"
 
 fr:
   PLUGINS:
     COOKIECONSENT:
       CONTENT_MESSAGE: "Nous utilisons des cookies pour assurer une meilleure navigation sur notre site. En utilisant nos services, vous acceptez notre utilisation des cookies."
       CONTENT_DISMISS: "OK"
+      CONTENT_ALLOW: "Autoriser les cookies"
+      CONTENT_DENY: "Interdire les cookies"
       CONTENT_LINK: "En savoir plus"
       CONTENT_HREF: "https://cookiesandyou.com"
+      CONTENT_REVOKE: "Changer le consentement du cookie"
 
 de:
   PLUGINS:
     COOKIECONSENT:
       CONTENT_MESSAGE: "Diese Webseite verwendet Cookies, um Ihnen einen besseren Service bieten zu können. Durch die weitere Nutzung der Seite stimmen Sie der Verwendung zu."
       CONTENT_DISMISS: "OK"
+      CONTENT_ALLOW: "Cookies erlauben"
+      CONTENT_DENY: "Cookies verbieten"
       CONTENT_LINK: "Weitere Informationen"
       CONTENT_HREF: "https://cookiesandyou.com"
+      CONTENT_REVOKE: "Cookie-Einstellung ändern"
 
 it:
   PLUGINS:
     COOKIECONSENT:
       CONTENT_MESSAGE: "Utilizziamo i cookie per migliorare i nostri servizi. Avvalendoti dei nostri servizi accetti la politica sull'uso dei cookie."
       CONTENT_DISMISS: "OK"
+      CONTENT_ALLOW: "Consenti i cookie"
+      CONTENT_DENY: "Vietare i cookie"
       CONTENT_LINK: "scopri di più"
       CONTENT_HREF: "https://cookiesandyou.com"
+      CONTENT_REVOKE: "Modifica consenso sui cookie"
 
 es:
   PLUGINS:
     COOKIECONSENT:
       CONTENT_MESSAGE: "Usamos cookies para ofrecer nuestros servicios de la mejor forma posible. Al usar nuestros servicios, usted acepta nuestro uso de cookies."
       CONTENT_DISMISS: "OK"
+      CONTENT_ALLOW: "Permitir cookies"
+      CONTENT_DENY: "Prohibir cookies"
       CONTENT_LINK: "ver más"
       CONTENT_HREF: "https://cookiesandyou.com"
+      CONTENT_REVOKE: "Cambiar consentimiento de cookies"

@@ -1,3 +1,11 @@
+# v0.5.0
+##  06/10/2019
+
+1. [](#new)
+    * Added plugin settings to let the user deny or allow cookies
+2. [](#improved)
+    * Updated cookie consent js and css from version 3.0.6 to 3.1.1: [cookieconsent.min.css](https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css) and [cookieconsent.min.js](https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js) 
+
 # v0.4.0
 ##  06/24/2018
 

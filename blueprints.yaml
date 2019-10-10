@@ -1,5 +1,5 @@
 name: Cookie Consent
-version: 0.4.0
+version: 0.5.0
 description: This grav plugin is to alert users about the use of cookies on your website. The plugin integrates the popular js lib cookie consent by insites.
 icon: gavel
 author:
@@ -7,7 +7,7 @@ author:
 homepage: https://github.com/naucon/grav-plugin-cookieconsent
 keywords: grav, plugin, cookie, consent, eu, law, policy, insites
 bugs: https://github.com/naucon/grav-plugin-cookieconsent/issues
-docs: https://github.com/naucon/grav-plugin-cookieconsent/blob/develop/README.md
+docs: https://github.com/naucon/grav-plugin-cookieconsent/blob/master/README.md
 license: MIT
 
 form:
@@ -150,3 +150,47 @@ form:
         block: Block (angled corners)
         classic: Classic (round corners)
         edgeless: Edgeless
+
+
+    optin:
+      type: section
+      title: Disabling cookies
+      underline: true
+
+    compliance_type:
+      type: select
+      size: medium
+      label: Compliance Type
+      default: info
+      help: Just inform users about cookies or Let them deny or allow cookies
+      options:
+        info: Info and dismiss button
+        opt-in: Info and deny/allow buttons
+
+    content_allow:
+      type: text
+      label: Allow button text
+      placeholder: "Allow Cookies"
+      validate:
+        type: text
+
+    content_deny:
+      type: text
+      label: Deny button text
+      placeholder: "Deny Cookies"
+      validate:
+        type: text
+
+    content_revoke:
+      type: text
+      label: Change consent button text
+      placeholder: "Change Cookie Consent"
+      validate:
+        type: text
+
+    callback_onStatusChange:
+      type: textarea
+      label: function to disable or enable cookies on your site
+      placeholder: "function(status, chosenBefore) {\n...\n}"
+      validate:
+        type: textarea
