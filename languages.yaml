@@ -52,3 +52,14 @@ es:
       CONTENT_LINK: "ver más"
       CONTENT_HREF: "https://cookiesandyou.com"
       CONTENT_REVOKE: "Cambiar consentimiento de cookies"
+
+nl:
+  PLUGINS:
+    COOKIECONSENT:
+      CONTENT_MESSAGE: "Deze website maakt gebruik van cookies om ervoor te zorgen dat u de beste ervaring op onze website krijgt."
+      CONTENT_DISMISS: "OK"
+      CONTENT_ALLOW: "Cookies toestaan"
+      CONTENT_DENY: "Verbied cookies"
+      CONTENT_LINK: "Lees meer"
+      CONTENT_HREF: "https://cookiesandyou.com"
+      CONTENT_REVOKE: "Cookie-toestemming wijzigen"
