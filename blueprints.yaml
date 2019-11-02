@@ -190,15 +190,22 @@ form:
 
     callback_onStatusChange:
       type: textarea
-      label: 'function to disable or enable cookies on your site<br>(required for opt-in)'
+      label: 'function to disable or enable cookies on your site<br>(used for opt-in)'
       rows: 6
       placeholder: "function(status, chosenBefore) {\n...\n}"
       validate:
         type: textarea
 
-    callback_hint:
+    callback_hint1:
       type: display
       size: large
       label: Callback-Example, logs to console only
       markdown: true
       content: "function(status) {<br>&nbsp; console.log( this.hasConsented() ? 'enable cookies': 'disable cookies' );<br>}"
+
+    callback_hint2:
+      type: display
+      size: large
+      label: Callback-Example, reloads the page on consent
+      markdown: true
+      content: "function(status) {<br>&nbsp; if(this.hasConsented()) location.replace(location);<br>}"

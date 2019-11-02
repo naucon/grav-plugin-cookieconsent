@@ -85,9 +85,14 @@ compliance_type: 'info'
 
 ## Disabling cookies
 
-With compliance type "opt-in" you will need to provide a function to disable or enable cookies on your site.  
-Disabling cookies should be done with the callback hook. See https://cookieconsent.osano.com/documentation/disabling-cookies/  
-With compliance type "opt-in" additionally a small revoke button is shown for the user to change cookie settings.
+With compliance type "info" you only inform the user that your site uses cookies. But with "opt-in" you give the user the option to accept or deny cookies respectively tracking.
+In this case you will need to provide a function to disable or enable cookies on your site.
+
+This plugin supports two ways to disable tracking cookies:
++ Define a function to enable or disable tracking under "callback_onStatusChange". See below and https://cookieconsent.osano.com/documentation/disabling-cookies/
++ Read the consent status of this plugin in your tracking code and enable or disable tracking there accordingly. The consent status is saved in the cookie "cookieconsent_status" and may have the values "allow" or "deny".
+  
+With compliance type "opt-in" additionally a small revoke button is shown for the user to change his/her cookie settings.
 
 You can customize texts and define callback functions for cookie control with the following options:
 
@@ -110,8 +115,15 @@ function(status) {
   setGaTracking(this.hasConsented());
 }
 ```
- 
-See also https://cookieconsent.osano.com/documentation/about-cookie-consent/, but only a subset of these functions are available here.
+If your tracking code is not inserted into your pages until the tracking is activated then reloading the page is needed to track this page.  
+The callback function to reload the page when tracking is activated is:
+```yaml
+function(status) {
+  if(this.hasConsented()) location.replace(location);
+}
+``` 
+
+See also the documentation https://cookieconsent.osano.com/documentation/about-cookie-consent/, but only a subset of these functions is available here.
 
 ### Translation
 
