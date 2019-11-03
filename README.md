@@ -109,7 +109,11 @@ callback_onStatusChange: "function(status) {
 }"
 ```
 
-The callback function to enable/disable tracking using the Google Analytics Plugin https://github.com/escopecz/grav-ganalytics Version 1.5 (coming soon) is:
+The Google Analytics Plugin https://github.com/escopecz/grav-ganalytics Version 1.5 supports both ways:
++ tracking opt-in by cookie: see ganalytics readme
++ tracking opt-out by JavaScript callback function
+
+The callback function to enable/disable tracking using the Google Analytics Plugin Version 1.5 is:
 ```yaml
 function(status) {
   setGaTracking(this.hasConsented());
