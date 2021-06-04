@@ -8,6 +8,7 @@ en:
       CONTENT_LINK: "Learn more"
       CONTENT_HREF: "https://cookiesandyou.com"
       CONTENT_REVOKE: "Change Cookie Consent"
+      SHOW_REVOKE: "Show revoke button"
 
 fr:
   PLUGINS:
@@ -19,6 +20,7 @@ fr:
       CONTENT_LINK: "En savoir plus"
       CONTENT_HREF: "https://cookiesandyou.com"
       CONTENT_REVOKE: "Changer le consentement du cookie"
+      SHOW_REVOKE: "Afficher le bouton de révocation"
 
 de:
   PLUGINS:
@@ -30,6 +32,7 @@ de:
       CONTENT_LINK: "Weitere Informationen"
       CONTENT_HREF: "https://cookiesandyou.com"
       CONTENT_REVOKE: "Cookie-Einstellung ändern"
+      SHOW_REVOKE: "Widerrufsschaltfläche anzeigen"
 
 it:
   PLUGINS:
@@ -41,6 +44,7 @@ it:
       CONTENT_LINK: "scopri di più"
       CONTENT_HREF: "https://cookiesandyou.com"
       CONTENT_REVOKE: "Modifica consenso sui cookie"
+      SHOW_REVOKE: "Mostra pulsante di revoca"
 
 es:
   PLUGINS:
@@ -52,6 +56,7 @@ es:
       CONTENT_LINK: "ver más"
       CONTENT_HREF: "https://cookiesandyou.com"
       CONTENT_REVOKE: "Cambiar consentimiento de cookies"
+      SHOW_REVOKE: "Mostrar botón de revocación"
 
 nl:
   PLUGINS:
@@ -63,3 +68,4 @@ nl:
       CONTENT_LINK: "Lees meer"
       CONTENT_HREF: "https://cookiesandyou.com"
       CONTENT_REVOKE: "Cookie-toestemming wijzigen"
+      SHOW_REVOKE: "Intrekkingsknop weergeven"

@@ -21,8 +21,12 @@ window.cookieconsent.initialise({
 {% if config.plugins.cookieconsent.compliance_type %}
 "type": "{{ config.plugins.cookieconsent.compliance_type }}",
 {% endif %}
-{% if config.plugins.cookieconsent.compliance_type != 'info' %}
-"revokeBtn": '<div class="cc-revoke {{ '{{classes}}' }}">{% if config.plugins.cookieconsent.content_revoke %}{{ config.plugins.cookieconsent.content_revoke }}{% else %}{{ 'PLUGINS.COOKIECONSENT.CONTENT_REVOKE'|t }}{% endif %}</div>',
+{% if config.plugins.cookieconsent.compliance_type != 'info'  %}
+  {% if config.plugins.cookieconsent.show_revoke %}
+    "revokeBtn": '<div class="cc-revoke {{ '{{classes}}' }}">{% if config.plugins.cookieconsent.content_revoke %}{{ config.plugins.cookieconsent.content_revoke }}{% else %}{{ 'PLUGINS.COOKIECONSENT.CONTENT_REVOKE'|t }}{% endif %}</div>',
+  {% else %}
+    "revokeBtn": '<div></div>',
+  {% endif %}
 {% if config.plugins.cookieconsent.callback_onStatusChange %}
 "onStatusChange": {{ config.plugins.cookieconsent.callback_onStatusChange }},
 {% endif %}
