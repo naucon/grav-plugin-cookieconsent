@@ -6,6 +6,7 @@ cdn: true                             # Include JavaScript and CSS files from of
 # content_allow:    # Allow button text (overwrite translation), only used for compliance type opt-in
 # content_deny:     # Deny button text (overwrite translation), only used for compliance type opt-in
 # content_revoke:   # Change/Revoke Consent button text (overwrite translation), only used for compliance type opt-in
+# show_revoke:      # Show the Change/Revoke button, only used for compliance type opt-in
 # content_link:     # Policy link text (overwrite translation)
 # content_href:     # Link to policy (overwrite translation)
 
