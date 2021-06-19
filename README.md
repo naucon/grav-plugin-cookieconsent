@@ -92,7 +92,7 @@ This plugin supports two ways to disable tracking cookies:
 + Define a function to enable or disable tracking under "callback_onStatusChange". See below and https://cookieconsent.osano.com/documentation/disabling-cookies/
 + Read the consent status of this plugin in your tracking code and enable or disable tracking there accordingly. The consent status is saved in the cookie "cookieconsent_status" and may have the values "allow" or "deny".
   
-With compliance type "opt-in" additionally a small revoke button is shown for the user to change his/her cookie settings.
+With compliance type "opt-in" additionally a small floating revoke button is shown for the user to change his/her cookie settings.
 
 You can customize texts and define callback functions for cookie control with the following options:
 
@@ -103,6 +103,8 @@ content_allow: 'Allow Cookies' # only for compliance type opt-in
 content_deny: 'Deny Cookies'   # only for compliance type opt-in
 # Change/Revoke Consent button text (overwrite translation)
 content_revoke: 'Change Cookie Consent'  # only for compliance type opt-in
+# Show/Hide floating button to change/revoke cookie consent
+show_revoke: true
 # Callback function to disable or enable cookies on your site. Example to only log a status change: 
 callback_onStatusChange: "function(status) {
   console.log(this.hasConsented() ? 'enable cookies': 'disable cookies');
@@ -113,19 +115,32 @@ The Google Analytics Plugin https://github.com/escopecz/grav-ganalytics Version 
 + tracking opt-in by cookie: see ganalytics readme
 + tracking opt-out by JavaScript callback function
 
-The callback function to enable/disable tracking using the Google Analytics Plugin Version 1.5 is:
+### opt-in 
+
+I consider to block tracking, if a consent-cookie is missing, is needed to be GDPR compliant. 
+Even the first page the user sees must not be tracked unless the user agrees (opt-in). Or the other way round: track a page only if the consent-cookie is set to allow tracking.  
+The appropriate setting in the Google Analytics Plugin Version 1.5 would be: 
+
 ```yaml
-function(status) {
-  setGaTracking(this.hasConsented());
-}
+blockingCookie: "cookieconsent_status"
+blockingCookieAllowValue: "allow"
 ```
-If your tracking code is not inserted into your pages until the tracking is activated then reloading the page is needed to track this page.  
+If your tracking code is not inserted into your pages until the tracking is activated then reloading the page is needed to track the actual page.  
 The callback function to reload the page when tracking is activated is:
 ```yaml
 function(status) {
   if(this.hasConsented()) location.replace(location);
 }
 ``` 
+
+### opt-out
+
+The callback function to enable/disable tracking using the Google Analytics Plugin Version 1.5 is:
+```yaml
+function(status) {
+  setGaTracking(this.hasConsented());
+}
+```
 
 See also the documentation https://cookieconsent.osano.com/documentation/about-cookie-consent/, but only a subset of these functions is available here.
 
