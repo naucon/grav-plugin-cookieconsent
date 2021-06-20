@@ -110,10 +110,10 @@ class CookieconsentPluginTest extends \Codeception\Test\Unit
         $this->assets = Stub::make(Assets::class,
             [
                 'addCss' => function($asset) {
-                    $this->assertEquals('//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.6/cookieconsent.min.css', $asset);
+                    $this->assertEquals('//cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css', $asset);
                 },
                 'addJs' => function($asset) {
-                    $this->assertEquals('//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.6/cookieconsent.min.js', $asset);
+                    $this->assertEquals('//cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js', $asset);
                 }
             ]
         );
