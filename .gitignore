@@ -4,3 +4,4 @@ vendor
 composer.phar
 phpunit.xml
 tests/_output/*
+cache
