@@ -2,7 +2,7 @@
 ## 06/04/2021
 
 1. [](#Improved)
-    * Add plugin setting to hide Change/Revoke consent button
+    * Add plugin setting to hide Change/Revoke consent button for compliance type "opt-in"
 
 # v0.5.0
 ##  06/10/2019

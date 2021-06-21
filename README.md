@@ -128,9 +128,9 @@ blockingCookieAllowValue: "allow"
 If your tracking code is not inserted into your pages until the tracking is activated then reloading the page is needed to track the actual page.  
 The callback function to reload the page when tracking is activated is:
 ```yaml
-function(status) {
+callback_onStatusChange: "function(status) {
   if(this.hasConsented()) location.replace(location);
-}
+}"
 ``` 
 
 ### opt-out
