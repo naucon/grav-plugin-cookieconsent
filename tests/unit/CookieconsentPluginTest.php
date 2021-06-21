@@ -74,6 +74,7 @@ class CookieconsentPluginTest extends \Codeception\Test\Unit
     public function testOnPluginsInitialized()
     {
         $this->grav['events']  = $this->eventDispatcher;
+        $this->grav['config']  = $this->config;
 
         $plugin = new CookieconsentPlugin('Cookie Consent', $this->grav, $this->config);
         $plugin->onPluginsInitialized();
