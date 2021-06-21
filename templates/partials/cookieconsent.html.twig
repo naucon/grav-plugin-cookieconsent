@@ -18,9 +18,24 @@ window.cookieconsent.initialise({
 "position": "{{ config.plugins.cookieconsent.position }}",
 {% endif %}
 "theme": "{{ config.plugins.cookieconsent.theme }}",
+{% if config.plugins.cookieconsent.compliance_type %}
+"type": "{{ config.plugins.cookieconsent.compliance_type }}",
+{% endif %}
+{% if config.plugins.cookieconsent.compliance_type != 'info'  %}
+  {% if config.plugins.cookieconsent.show_revoke %}
+"revokeBtn": '<div class="cc-revoke {{ '{{classes}}' }}">{% if config.plugins.cookieconsent.content_revoke %}{{ config.plugins.cookieconsent.content_revoke }}{% else %}{{ 'PLUGINS.COOKIECONSENT.CONTENT_REVOKE'|t }}{% endif %}</div>',
+  {% else %}
+"revokeBtn": '<div></div>',
+  {% endif %}
+{% if config.plugins.cookieconsent.callback_onStatusChange %}
+"onStatusChange": {{ config.plugins.cookieconsent.callback_onStatusChange }},
+{% endif %}
+{% endif %}
 "content": {
     "message": "{% if config.plugins.cookieconsent.content_message %}{{ config.plugins.cookieconsent.content_message }}{% else %}{{ 'PLUGINS.COOKIECONSENT.CONTENT_MESSAGE'|t }}{% endif %}",
     "dismiss": "{% if config.plugins.cookieconsent.content_dismiss %}{{ config.plugins.cookieconsent.content_dismiss }}{% else %}{{ 'PLUGINS.COOKIECONSENT.CONTENT_DISMISS'|t }}{% endif %}",
+    "allow": "{% if config.plugins.cookieconsent.content_allow %}{{ config.plugins.cookieconsent.content_allow }}{% else %}{{ 'PLUGINS.COOKIECONSENT.CONTENT_ALLOW'|t }}{% endif %}",
+    "deny": "{% if config.plugins.cookieconsent.content_deny %}{{ config.plugins.cookieconsent.content_deny }}{% else %}{{ 'PLUGINS.COOKIECONSENT.CONTENT_DENY'|t }}{% endif %}",
     "link": "{% if config.plugins.cookieconsent.content_link %}{{ config.plugins.cookieconsent.content_link }}{% else %}{{ 'PLUGINS.COOKIECONSENT.CONTENT_LINK'|t }}{% endif %}",
     "href": "{% if config.plugins.cookieconsent.content_href %}{{ config.plugins.cookieconsent.content_href }}{% else %}{{ 'PLUGINS.COOKIECONSENT.CONTENT_HREF'|t }}{% endif %}"
 }

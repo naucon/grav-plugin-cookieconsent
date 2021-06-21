@@ -1,9 +1,28 @@
-enabled: true
-cdn: true
-popup_background_color: '#000000'
-popup_text_color: '#ffffff'
-button_background_color: '#f1d600'
-button_text_color: '#000000'
-button_border_color: '#f1d600'
-position: bottom
-theme: block
+enabled: true                         # Global enable/disable the entire plugin
+cdn: true                             # Include JavaScript and CSS files from official CDN or local
+
+# content_message:  # Message on the banner (overwrite translation)
+# content_dismiss:  # Dismiss button text (overwrite translation)
+# content_allow:    # Allow button text (overwrite translation), only used for compliance type opt-in
+# content_deny:     # Deny button text (overwrite translation), only used for compliance type opt-in
+# content_revoke:   # Change/Revoke Consent button text (overwrite translation), only used for compliance type opt-in
+# content_link:     # Policy link text (overwrite translation)
+# content_href:     # Link to policy (overwrite translation)
+show_revoke: true                     # Show the Change/Revoke button, only used for compliance type opt-in
+
+popup_background_color: '#000000'     # Color of banner background
+popup_text_color: '#ffffff'           # Color of banner text
+button_background_color: '#f1d600'    # Color of button background
+button_text_color: '#000000'          # Color of button text
+button_border_color: '#f1d600'        # Color of button border
+
+position: bottom                      # Position on the website, where the banner will be displayed.
+theme: block                          # Button layout
+
+compliance_type: 'info' # Type of Cookie Compliance: info or opt-in
+
+# the callback function for the cookie control of your site is required for compliance type opt-in
+callback_onStatusChange: "function(status) {
+  console.log(this.hasConsented() ?
+  'enable cookies': 'disable cookies');
+}"

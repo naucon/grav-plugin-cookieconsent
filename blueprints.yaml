@@ -1,5 +1,5 @@
 name: Cookie Consent
-version: 0.4.0
+version: 0.5.1
 description: This grav plugin is to alert users about the use of cookies on your website. The plugin integrates the popular js lib cookie consent by insites.
 icon: gavel
 author:
@@ -7,7 +7,7 @@ author:
 homepage: https://github.com/naucon/grav-plugin-cookieconsent
 keywords: grav, plugin, cookie, consent, eu, law, policy, insites
 bugs: https://github.com/naucon/grav-plugin-cookieconsent/issues
-docs: https://github.com/naucon/grav-plugin-cookieconsent/blob/develop/README.md
+docs: https://github.com/naucon/grav-plugin-cookieconsent/blob/master/README.md
 license: MIT
 
 form:
@@ -150,3 +150,73 @@ form:
         block: Block (angled corners)
         classic: Classic (round corners)
         edgeless: Edgeless
+
+
+    optin:
+      type: section
+      title: Disabling cookies
+      underline: true
+
+    compliance_type:
+      type: select
+      size: medium
+      label: Compliance Type
+      default: info
+      help: Just inform users about cookies or Let them deny or allow cookies
+      options:
+        info: 'Info: text with dismiss button'
+        opt-in: 'Opt-in: text with deny/allow buttons'
+
+    content_allow:
+      type: text
+      label: Allow button text
+      placeholder: "Allow Cookies"
+      validate:
+        type: text
+
+    content_deny:
+      type: text
+      label: Deny button text
+      placeholder: "Deny Cookies"
+      validate:
+        type: text
+
+    content_revoke:
+      type: text
+      label: Change consent button text
+      placeholder: "Change Cookie Consent"
+      validate:
+        type: text
+
+    show_revoke:
+      type: toggle
+      label: Show consent button
+      highlight: 1
+      default: 1
+      options:
+        1: Show
+        0: Hide
+      validate:
+        type: bool
+
+    callback_onStatusChange:
+      type: textarea
+      label: 'function to disable or enable cookies on your site<br>(used for opt-in)'
+      rows: 6
+      placeholder: "function(status, chosenBefore) {\n...\n}"
+      validate:
+        type: textarea
+
+    callback_hint1:
+      type: display
+      size: large
+      label: Callback-Example, logs to console only
+      markdown: true
+      content: "function(status) {<br>&nbsp; console.log( this.hasConsented() ? 'enable cookies': 'disable cookies' );<br>}"
+
+    callback_hint2:
+      type: display
+      size: large
+      label: Callback-Example, reloads the page on consent
+      markdown: true
+      content: "function(status) {<br>&nbsp; if(this.hasConsented()) location.replace(location);<br>}"

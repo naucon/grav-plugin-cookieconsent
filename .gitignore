@@ -2,9 +2,6 @@
 .idea
 vendor
 composer.phar
-composer.lock
 phpunit.xml
 tests/_output/*
-tests/_output/*
-tests/_output/*
-tests/_output/*
+cache

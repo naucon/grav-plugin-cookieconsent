@@ -2,7 +2,7 @@
 
 ![Cookie Consent](assets/readme_1.png)
 
-The **Cookie Consent** Plugin is for [Grav CMS](http://github.com/getgrav/grav). This grav plugin is to alert users about the use of cookies on your website. The plugin integrates the popular js lib [cookie consent](https://github.com/insites/cookieconsent/) by insites.
+The **Cookie Consent** Plugin is for [Grav CMS](http://github.com/getgrav/grav). This grav plugin is to alert users about the use of cookies on your website. The plugin integrates the popular js lib [cookie consent](https://github.com/osano/cookieconsent) by Osano - previously known as Silktide Cookie Consent and Cookie Consent by Insites.
 
 ## Installation
 
@@ -76,13 +76,79 @@ position: bottom
 # classic: Classic (round corners)
 # edgeless: Edgeless
 theme: block
+
+# Type of Cookie Compliance, see https://cookieconsent.osano.com/documentation/compliance/
+# info: Informational, just tell users that we use cookies, only dismiss button
+# opt-in: Let users deny or allow cookies (Advanced, callback needed), buttons: deny, allow
+compliance_type: 'info'
 ```
+
+## Disabling cookies
+
+With compliance type "info" you only inform the user that your site uses cookies. But with "opt-in" you give the user the option to accept or deny cookies respectively tracking.
+In this case you will need to provide a function to disable or enable cookies on your site.
+
+This plugin supports two ways to disable tracking cookies:
++ Define a function to enable or disable tracking under "callback_onStatusChange". See below and https://cookieconsent.osano.com/documentation/disabling-cookies/
++ Read the consent status of this plugin in your tracking code and enable or disable tracking there accordingly. The consent status is saved in the cookie "cookieconsent_status" and may have the values "allow" or "deny".
+  
+With compliance type "opt-in" additionally a small floating revoke button is shown for the user to change his/her cookie settings.
+
+You can customize texts and define callback functions for cookie control with the following options:
+
+```yaml
+# Allow button text (overwrite translation)
+content_allow: 'Allow Cookies' # only for compliance type opt-in
+# Deny button text (overwrite translation)
+content_deny: 'Deny Cookies'   # only for compliance type opt-in
+# Change/Revoke Consent button text (overwrite translation)
+content_revoke: 'Change Cookie Consent'  # only for compliance type opt-in
+# Show/Hide floating button to change/revoke cookie consent
+show_revoke: true
+# Callback function to disable or enable cookies on your site. Example to only log a status change: 
+callback_onStatusChange: "function(status) {
+  console.log(this.hasConsented() ? 'enable cookies': 'disable cookies');
+}"
+```
+
+The Google Analytics Plugin https://github.com/escopecz/grav-ganalytics Version 1.5 supports both ways:
++ tracking opt-in by cookie: see ganalytics readme
++ tracking opt-out by JavaScript callback function
+
+### opt-in 
+
+I consider to block tracking, if a consent-cookie is missing, is needed to be GDPR compliant. 
+Even the first page the user sees must not be tracked unless the user agrees (opt-in). Or the other way round: track a page only if the consent-cookie is set to allow tracking.  
+The appropriate setting in the Google Analytics Plugin Version 1.5 would be: 
+
+```yaml
+blockingCookie: "cookieconsent_status"
+blockingCookieAllowValue: "allow"
+```
+If your tracking code is not inserted into your pages until the tracking is activated then reloading the page is needed to track the actual page.  
+The callback function to reload the page when tracking is activated is:
+```yaml
+callback_onStatusChange: "function(status) {
+  if(this.hasConsented()) location.replace(location);
+}"
+``` 
+
+### opt-out
+
+The callback function to enable/disable tracking using the Google Analytics Plugin Version 1.5 is:
+```yaml
+function(status) {
+  setGaTracking(this.hasConsented());
+}
+```
+
+See also the documentation https://cookieconsent.osano.com/documentation/about-cookie-consent/, but only a subset of these functions is available here.
 
 ### Translation
 
 Translations are defined in the `languages.yaml` file.
 
-Translations will be used if no `content_message`, `content_dismiss`, `content_link` or `content_href` are defined in `cookieconsent.yaml`.
+Translations will be used if no `content_message`, `content_dismiss`, `content_link`, `content_href`, `content_allow`, `content_deny` or `content_revoke` are defined in `cookieconsent.yaml`.
 
 
 ### Known Issues
